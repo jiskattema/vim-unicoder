@@ -159,6 +159,35 @@ function! s:setup_abbreviations()
   Prefixab  \\ omega       ω
   " }}}
   " }}}
+ 
+  " Mathcal {{{
+  Prefixab  \\ mcalA       𝓐
+  Prefixab  \\ mcalB       𝓑
+  Prefixab  \\ mcalC       𝓒
+  Prefixab  \\ mcalD       𝓓
+  Prefixab  \\ mcalE       𝓔
+  Prefixab  \\ mcalF       𝓕
+  Prefixab  \\ mcalG       𝓖
+  Prefixab  \\ mcalH       𝓗
+  Prefixab  \\ mcalI       𝓘
+  Prefixab  \\ mcalJ       𝓙
+  Prefixab  \\ mcalK       𝓚
+  Prefixab  \\ mcalL       𝓛
+  Prefixab  \\ mcalM       𝓜
+  Prefixab  \\ mcalN       𝓝
+  Prefixab  \\ mcalO       𝓞
+  Prefixab  \\ mcalP       𝓟
+  Prefixab  \\ mcalQ       𝓠
+  Prefixab  \\ mcalR       𝓡
+  Prefixab  \\ mcalS       𝓢
+  Prefixab  \\ mcalT       𝓣
+  Prefixab  \\ mcalU       𝓤
+  Prefixab  \\ mcalV       𝓥
+  Prefixab  \\ mcalW       𝓦
+  Prefixab  \\ mcalX       𝓧
+  Prefixab  \\ mcalY       𝓨
+  Prefixab  \\ mcalZ       𝓩
+  " }}}
 
   " Shapes {{{
   Prefixab  \\ box         □
