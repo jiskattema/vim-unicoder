@@ -43,6 +43,39 @@ endfunction
 command! -nargs=+ Prefixab call s:Prefixab('<buffer>', <f-args>)
 command! -nargs=+ Noprefixab call s:Prefixab('<buffer>', '', <f-args>)
 
+function! CompleteIAB(findstart, base)
+    if a:findstart
+        " locate the start of the word
+        let line = getline('.')
+        let start = col('.') - 1
+        while start >= 0 
+            if line[start] == '\' || line[start] == '`'
+              return start
+            elseif line[start] =~ '\s'
+              return -3
+            endif 
+            let start -= 1
+        endwhile
+        return -3
+    else
+        " find abbreviations matching "a:base"
+        let abbrevs = split(execute('iab'), '<CR>')
+        let res = []
+        for abbrev in abbrevs
+          let lst = matchlist(abbrev, '^.*irepl(''\(.*\)'', *''\(.*\)'', *''\(.*\)'' *)')
+          let finalabbrev = lst[1] . lst[2]
+
+          let matched = matchfuzzy([finalabbrev], a:base)
+          if len(matched) > 0
+              let displ = printf('%0.5s   %s', lst[3], lst[1] . lst[2])
+              call add(res, {'word': finalabbrev, 'abbr': displ})
+          endif
+        endfor
+        return {'words': res}
+    endif
+endfun
+set completefunc=CompleteIAB
+
 " Initialization
 autocmd WinEnter,BufEnter *
   \ if index(g:unicoder_exclude_filetypes, &ft) < 0

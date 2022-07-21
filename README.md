@@ -1,4 +1,4 @@
-# unicoder.vim
+# (fork of) unicoder.vim
 
 Insert cool unicode characters while in _insert mode_ just by typing LaTeX and [Agda Mode](http://agda.readthedocs.io/en/v2.5.2/tools/emacs-mode.html#common-characters) inspired abbreviations.
 
@@ -41,6 +41,9 @@ Insert cool unicode characters while in _insert mode_ just by typing LaTeX and [
         - [Circled numbers](#circled-numbers)
         - [Uppercase circled](#uppercase-circled)
         - [Lowercase circled](#lowercase-circled)
+    - [Font Awesome](#font-awesome)
+    - [Unicode emojis](#unicode-emojis)
+1. [Completion](#completion)
 
 ## Installation
 
@@ -603,3 +606,21 @@ the insertion.
 `\(x)`           |     ⓧ
 `\(y)`           |     ⓨ
 `\(z)`           |     ⓩ
+
+# Font Awesome
+
+For a full list see [Font Awesome](https://fontawesome.com/).
+Those abbreviations start with a backtick.
+Completion uses fuzzy matching.
+
+# Unicode emojis
+
+For a full list see [Unicode emojis](https://unicode.org/emoji/charts/full-emoji-list.html).
+Those abbreviations start with a backtick.
+Completion uses fuzzy matching.
+
+# Completion
+
+A user completion function (^X^U) has been defined that shows the available
+abbreviations. Note that for the Font Awesome and Unicode Emojis, fuzzy matching
+on the character name is used.
