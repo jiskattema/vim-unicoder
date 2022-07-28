@@ -4,10 +4,6 @@ endif
 let g:loaded_unicoder = 1
 
 " Defaults {{{
-if !exists('g:unicoder_exclude_filetypes')
-  let g:unicoder_exclude_filetypes = ['tex', 'latex', 'plaintex']
-endif
-
 if !exists('g:unicoder_command_abbreviations')
   let g:unicoder_command_abbreviations = 1
 endif
@@ -40,8 +36,8 @@ function! s:Prefixab(opts, prefix, lhs, rhs)
     silent! exe 'cnoreab '.a:opts.' '.a:lhs.' <c-r>=<sid>crepl('.args.')<cr>'
   endif
 endfunction
-command! -nargs=+ Prefixab call s:Prefixab('<buffer>', <f-args>)
-command! -nargs=+ Noprefixab call s:Prefixab('<buffer>', '', <f-args>)
+command! -nargs=+ Prefixab call s:Prefixab('', <f-args>)
+command! -nargs=+ Noprefixab call s:Prefixab('', '', <f-args>)
 
 function! CompleteIAB(findstart, base)
     if a:findstart
@@ -77,11 +73,6 @@ endfun
 set completefunc=CompleteIAB
 
 " Initialization
-autocmd WinEnter,BufEnter *
-  \ if index(g:unicoder_exclude_filetypes, &ft) < 0
-  \ | call s:setup_abbreviations()
-  \ | endif
-
 function! s:setup_abbreviations()
   augroup pencil_iskeyword
     autocmd!
